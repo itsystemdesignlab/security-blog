@@ -32,7 +32,7 @@ Create a virtual environment to install dependencies in and activate it. Then in
 $ poetry install
 $ poetry shell
 ```
-For run application.
+For run application:
 ```sh
 (env)$ cd project
 (env)$ python manage.py runserver
