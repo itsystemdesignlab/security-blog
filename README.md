@@ -60,7 +60,7 @@ django-summernote allows you to embed Summernote into Django very handy. Support
 - 
 
 ### Docs
-Go to docs/ folder.
+Go to docs/ folder
 ```sh
 $ (env) make html
 ```
