@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+<h1 class="text-center mt-3">Contact</h1>
+
+
+    <div class="container">
+        <div class="row">
+
+            <!-- Blog Entries Column -->
+            <div class="col-md-8 mt-3">
+                {% for contact in contact_list %}
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ contact.name }}</h2>
+                            <p class="card-text">Email: {{ contact.email }}</p>
+                            <p class="card-text">Address: {{ contact.address }}</p>
+                            <p class="card-text">Phone: {{ contact.phone_number }}</p>
+                        </div>
+
+                    </div>
+                {% endfor %}
+                
+            </div>
+            <div style="margin-left:150px;" class="col-md-8 card mb-4  mt-3">
+                <div class="card-body">
+                    <form method="post" style="margin-top: 1.3em;">
+                        {{ contact_form | crispy }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+                    </form>
+                </div>
+            </div>
+            {% block sidebar %}
+                {% include 'sidebar.html' %}
+            {% endblock sidebar %}
+        </div>
+    </div>
+    {% if is_paginated %}
+        </div>
+    {% endif %}
+{%endblock%}

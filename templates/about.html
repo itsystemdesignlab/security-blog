@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="text-center mt-3">About</h1>
+
+    <div  style="margin-right:200px;" class="container">
+        <div class="row">
+
+            <!-- Blog Entries Column -->
+            <div class="col-md-8 mt-3 left">
+                {% for about in about_list %}
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h2 class="card-title"><hr>{{ about.title }}<hr></h2>
+                            <p class="card-text">{{ about.body }}</p>
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+            </div>
+            {% block sidebar %}
+                {% include 'sidebar.html' %}
+            {% endblock sidebar %}
+        </div>
+    </div>
+    {% if is_paginated %}
+        </div>
+    {% endif %}
+{%endblock%}
